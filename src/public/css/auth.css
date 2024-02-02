@@ -1,0 +1,37 @@
+.auth-main {
+    background-color: gray;
+    height: 100%;
+}
+
+.auth-title {
+    margin: 0 auto;
+    background-color: gray;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+
+.auth-body {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 5% 0;
+}
+
+.auth-body-name,
+.auth-body-mail,
+.auth-body-password {
+    width: 50%;
+    margin: 0 auto;
+}
+
+input[id*="auth-body__your"] {
+    display: block;
+    background-color: gray;
+}
+
+.auth-body-button {
+    display: block;
+    margin: 5% auto;
+}

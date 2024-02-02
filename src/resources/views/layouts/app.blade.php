@@ -19,7 +19,7 @@
       <a class="header__logo" href="#">
           FashonablyLate
       </a>
-      <nav class="header-nav__login">
+      <nav class="header-nav__button">
       @if(Auth::check())
         <form action="/logout" method="post">
           @csrf

@@ -1,0 +1,20 @@
+.header__inner {
+    position: relative;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__logo {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: 32px;
+}
+
+.header-nav__button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

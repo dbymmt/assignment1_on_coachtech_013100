@@ -6,45 +6,47 @@
 
 
 @section('content')
-<article class="register-main">
-    <h2 class="register-title">Register</h2>
-    <div class="register-body">
+<article class="auth-main">
+    <h2 class="auth-title">Register</h2>
+    <div class="auth-body">
         <form action="/register" method="POST">
         @csrf
-            <div class="register-body-name">
+
+            <div class="auth-body-name">
                 @if($errors->has('name'))
-                <ul class="login-body-name__errors">
+                <ul class="auth-body-name__errors">
                     @foreach($errors->get('name') as $em)
                     <li>{{$em}}</li>
                     @endforeach
                 </ul>
                 @endif
-                <label for="register-body_your-name" class="register-body_your-name-label" >お名前</label>
-                <input type="text" id="register-body__your-name" name="name" value="{{old('name')}}">
+                <label for="auth-body_your-name" class="auth-body_your-name-label" >お名前</label>
+                <input type="text" id="auth-body__your-name" name="name" value="{{old('name')}}">
             </div>
-            <div class="register-body-mail">
+            <div class="auth-body-mail">
                 @if($errors->has('email'))
-                <ul class="login-body-mail__errors">
+                <ul class="auth-body-mail__errors">
                     @foreach($errors->get('email') as $em)
                     <li>{{$em}}</li>
                     @endforeach
                 </ul>
                 @endif
-                <label for="register-body__your-mail" class="register-body__your-mail-label">メールアドレス</label>
-                <input type="text" id="register-body__your-mail" name="email" value="{{old('email')}}">
+                <label for="auth-body__your-mail" class="auth-body__your-mail-label">メールアドレス</label>
+                <input type="text" id="auth-body__your-mail" name="email" value="{{old('email')}}">
             </div>
-            <div class="register-body-password">
+            <div class="auth-body-password">
                 @if($errors->has('password'))
-                <ul class="login-body-password__errors">
+                <ul class="auth-body-password__errors">
                     @foreach($errors->get('password') as $em)
                     <li>{{$em}}</li>
                     @endforeach
                 </ul>
                 @endif
-                <label for="register-body__your-password" class="register-body__your-password-label">パスワード</label>
-                <input type="password" id="register-body__your-password" name="password" value="{{old('password')}}">
+                <label for="auth-body__your-password" class="auth-body__your-password-label">パスワード</label>
+                <input type="password" id="auth-body__your-password" name="password" value="{{old('password')}}">
             </div>
-            <input type="submit" value="登録">
+            <input class="auth-body-button" type="submit" value="登録">
+
         </form>
     </div>
 </article>
