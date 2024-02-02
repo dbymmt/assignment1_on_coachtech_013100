@@ -1,0 +1,14 @@
+dl.confirm-body-form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 0 auto;
+}
+
+dt[class^="confirm-body"] {
+    width: 20%;
+}
+
+dd[class^="confirm-body"] {
+    width: 70%;
+}

@@ -8,9 +8,7 @@
 @section('content')
 <article class="admin-main">
     
-    <section class="admin-header">
-        Admin
-    </section>
+    <h2 class="admin-title">Admin</h2>
     
     <section class="admin-search-menu">
         <div class="admin-search-menu-main">
@@ -33,7 +31,6 @@
                 </select>
                 <input type="date" name="date" value="{{ request()->input('date') }}">
                 <input type="submit" value="検索">
-                {{-- TODO リセット機能 --}}
                 <button id="admin-search-menu-reset">リセット</button>
             </form>
         </div>

@@ -1,0 +1,11 @@
+div[class^="index-body-"] {
+    display: flex;
+}
+
+label[class$="-label"] {
+    width: 30%;
+}
+
+div[class*="__input"] {
+    width: 70%;
+}
