@@ -26,13 +26,15 @@
             <input type="submit" value="logout">
         </form>
       @elseif(Request::is('login'))
-        <a class="header-nav__login-button" href="/register">
+        {{-- <a class="header-nav__login-button" href="/register">
           register
-        </a>
+        </a> --}}
+        <button onclick="location.href='/register'">register</button>
       @elseif(Request::is('register'))
-        <a class="header-nav__login-button" href="/login">
+        {{-- <a class="header-nav__login-button" href="/login">
           login
-        </a>
+        </a> --}}
+        <button onclick="location.href='/login'">login</button>
       @else
         <p></p>
       @endif
