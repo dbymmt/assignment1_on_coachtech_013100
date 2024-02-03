@@ -19,7 +19,7 @@ function openModal(index) {
             modalContent.querySelector('.modal-content__table-category td').innerText = data.category.content;
             modalContent.querySelector('.modal-content__table-detail td').innerText = data.detail;
 
-            console.log(data);
+            //console.log(data);
 
             var delButton = document.getElementById('modal-content__table-button-column-delete');
 
