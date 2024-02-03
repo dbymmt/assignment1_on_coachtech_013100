@@ -20,8 +20,8 @@
             <dt class="confirm-body__gender-label" >性別</dt>
             <dd class="confirm-body__gender-men" >
                 {{
-                    $data['gender'] === 1 ? '男性' :
-                    ($data['gender'] === 2 ? '女性' : 'その他')}}
+                    $data['gender'] === '1' ? '男性' :
+                    ($data['gender'] === '2' ? '女性' : 'その他')}}
             </dd>
             <input type="hidden" name="gender" value="{{ $data['gender'] }}">
 

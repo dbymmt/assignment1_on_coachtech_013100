@@ -9,6 +9,7 @@ section[class^="admin"] {
     margin: 0 auto;
 }
 
+/* 検索部 */
 .admin-search-menu-main {
     text-align: center;
 }
@@ -19,21 +20,7 @@ section[class^="admin"] {
     align-items: center;
 }
 
-/* .page-item:not(:first-child):not(:last-child) { */
-.page-item {
-    border: 1px solid gray;
-}
-
-.active {
-    color: #fff;
-    background-color: gray;
-}
-
-.page-item>a {
-    text-decoration: none;
-}
-
-
+/* 結果部 */
 .admin-result-body {
     width: 100%;
 }
@@ -61,6 +48,20 @@ ul.pagination {
 svg.w-5.h-5 {
     width: 30px;
     height: 30px;
+}
+
+/* .page-item:not(:first-child):not(:last-child) { */
+.page-item {
+    border: 1px solid gray;
+}
+
+.active {
+    color: #fff;
+    background-color: gray;
+}
+
+.page-item>a {
+    text-decoration: none;
 }
 
 /* モーダルウィンドウのスタイル */

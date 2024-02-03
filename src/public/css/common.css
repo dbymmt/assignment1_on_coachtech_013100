@@ -1,3 +1,20 @@
+/* 共通 */
+ul[class$="errors"] {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ul[class$="errors"]>li {
+    list-style: none;
+    color: red;
+    text-align: end;
+}
+
+
+
+
+/* ヘッダ部 */
 .header__inner {
     position: relative;
     height: 50px;
