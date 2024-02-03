@@ -1,6 +1,55 @@
+/* メイン部 */
+article[class*="-main"] {
+    width: 50%;
+    margin: 0 auto;
+}
+
+section[class^="admin"] {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.admin-search-menu-main {
+    text-align: center;
+}
+
 .admin-search-menu-sub {
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .page-item:not(:first-child):not(:last-child) { */
+.page-item {
+    border: 1px solid gray;
+}
+
+.active {
+    color: #fff;
+    background-color: gray;
+}
+
+.page-item>a {
+    text-decoration: none;
+}
+
+
+.admin-result-body {
+    width: 100%;
+}
+
+.admin-result-body>tbody {
+    border: 1px solid gray;
+    /* border-left: 1px solid gray; */
+}
+
+.admin-result-body>tbody>tr {
+    border-bottom: 1px solid gray;
+}
+
+.admin-result-body__head {
+    color: #fff;
+    background-color: gray;
 }
 
 /* ページネーションのスタイル */
@@ -33,7 +82,25 @@ svg.w-5.h-5 {
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 40%;
+}
+
+.modal-content__table {
+    margin: 0 auto;
+}
+
+tr[class*="modal-content__table"]>th {
+    text-align: left;
+}
+
+td[colspan="2"] {
+    text-align: center;
+}
+
+#modal-content__table-button-column-delete {
+    color: #fff;
+    background-color: red;
+    border-color: red;
 }
 
 .modal-close {

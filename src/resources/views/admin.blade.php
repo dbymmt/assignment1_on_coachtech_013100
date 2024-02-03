@@ -79,10 +79,6 @@
                 <span class="modal-close" onclick="closeModal()">&times;</span>
                 <div id="modal-content">
                     <table class="modal-content__table">
-                        <tr id="modal-content__table-id">
-                            <th>テスト</th>
-                            <td></td>
-                        </tr>
                         <tr class="modal-content__table-name">
                             <th>お名前</th>
                             <td></td>
@@ -109,9 +105,7 @@
                         </tr>
                         <tr class="modal-content__table-detail">
                             <th>お問い合わせ内容</th>
-                            <td>
-                                
-                            </td>
+                            <td></td>
                         </tr>
                         <tr class="modal-content__table-button">
                             <td colspan="2">
