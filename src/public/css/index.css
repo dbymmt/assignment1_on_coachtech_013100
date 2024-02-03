@@ -1,3 +1,8 @@
+article[class*="-main"] {
+    width: 50%;
+    margin: 0 auto;
+}
+
 div[class^="index-body-"] {
     display: flex;
 }
@@ -8,4 +13,43 @@ label[class$="-label"] {
 
 div[class*="__input"] {
     width: 70%;
+}
+
+input[id*="index"] {
+    width: 100%;
+}
+
+input[value="確認画面"] {
+    display: block;
+    margin: 0 auto;
+}
+
+.index-body__input-name {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[id*="index-body__"][id*="-name"] {
+    display: block;
+    width: 45%;
+}
+
+input[id*="gender"] {
+    width: 5%;
+}
+
+input[id*="tel"] {
+    width: 25%;
+}
+
+select[id*="category"] {
+    width: 50%;
+}
+
+textarea[id*="detail"] {
+    width: 100%;
+}
+
+span[class*="__asterisk"] {
+    color: red;
 }
