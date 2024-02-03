@@ -57,6 +57,8 @@ class AdminController extends Controller
             return response()->json(['error' => 'データが見つかりませんでした'], 404);
         }
 
+        $result['category'] = $result->category->content;
+
         return response()->json($result);
     }
 

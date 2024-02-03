@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
+use App\Models\Contact;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +16,6 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-// TODO
-// 全体
-//   cssいじりだよなあ
-// admin系
-//   csv化なあ・・・
-// フォーム系
-// 　tel成型とかほんとはmiddlewareなんだよな・・・
 
 
 Route::middleware('auth')->group(function () {

@@ -61,10 +61,7 @@
                         <td>{{$result->gender === 1 ? '男性' : 
                         ($result->gender === 2 ? '女性' : 'その他')}}</td>
                         <td>{{$result->email}}</td>
-                        <td>{{$result->category_id === 1 ? '商品のお届けについて' : 
-                        ($result->category_id === 2 ? '商品の交換について' : 
-                        ($result->category_id === 3 ? '商品トラブル' : 
-                        ($result->category_id === 4 ? 'ショップへのお問い合わせ' : 'その他')))}}</td>
+                        <td>{{$result->category->content}}</td>
                         <td><button onClick="openModal({{$result->id}})">詳細</button></td>
                     </tr>
                 @endforeach
