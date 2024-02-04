@@ -39,14 +39,49 @@ class AdminController extends Controller
                 $query->whereDate('created_at', $request->input('date'));
             }
 
-            $results = $query->paginate(7)->withQueryString();;
+            if($request->input('toCSV')){
+                $results = $query->get();
+                return $this->toCSV($results);
+            }else{
+                $results = $query->paginate(7)->withQueryString();
+            }
 
-            return view('admin', ['results' => $results]);
         }
         else{
-            $results = Contact::Paginate(7);
-            return view('admin', ['results' => $results]);
+            if($request->input('toCSV')){
+                $results = $query->get();
+                return $this->toCSV($results);
+            }else{
+                $results = Contact::Paginate(7);
+            }
         }
+
+        return view('admin', ['results' => $results]);
+    }
+
+    public function toCSV($contacts)
+    {
+        // CSVファイルを生成し、ヘッダー行を追加
+        $csvFileName = 'contacts.csv';
+        $csvFile = fopen(public_path($csvFileName), 'w');
+        fputcsv($csvFile, ['ID', 'お名前', '性別', 'メールアドレス', 'お問い合わせの種類', '作成日時']);
+
+        // データをCSVファイルに書き込む
+        foreach ($contacts as $contact) {
+            fputcsv($csvFile, [
+                $contact->id,
+                $contact->first_name . ' ' . $contact->last_name,
+                $contact->gender === 1 ? '男性' : ($contact->gender === 2 ? '女性' : 'その他'),
+                $contact->email,
+                $contact->category->content,
+                $contact->created_at,
+            ]);
+        }
+
+        fclose($csvFile);
+
+        // ダウンロードリンクを返す
+        return response()->download(public_path($csvFileName))->deleteFileAfterSend(true);
     }
 
     public function RetJSON($index)

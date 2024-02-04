@@ -17,7 +17,6 @@ use App\Models\Contact;
 */
 
 
-
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'AdminIndex']);
     Route::get('/admin/contact/{index}', [AdminController::class, 'RetJSON']);
