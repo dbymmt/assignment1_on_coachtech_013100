@@ -32,12 +32,12 @@
                 <input type="date" name="date" value="{{ request()->input('date') }}">
                 <input type="submit" value="検索">
                 <button id="admin-search-menu-reset">リセット</button>
-            </form>
+            {{-- </form> --}}
         </div>
         <div class="admin-search-menu-sub">
             {{-- TODO CSV化機能 --}}
-            <form>
-                <button>エクスポート</button>
+            {{-- <form action="/admin" method="GET"> --}}
+                <input type="submit" name="toCSV" value="エクスポート">
             </form>
             {{ $results->appends(request()->query())->links('vendor.pagination.simple-default') }}
         </div>
