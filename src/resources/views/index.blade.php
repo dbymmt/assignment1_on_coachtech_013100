@@ -36,7 +36,7 @@
         <div class="index-body-gender">
             <label for="index-body__gender" class="index-body__gender-label" >性別<span class="index-body__asterisk">※</span></label>
             <div class="index-body__input-gender">
-                <input type="radio" id="index-body__gender-men" name="gender" value="1" {{ old('gender') === '1' ? 'checked' : '' }}>
+                <input type="radio" id="index-body__gender-men" name="gender" value="1" {{ (old('gender') === '' || '1') ? 'checked' : '' }}>
                 <label for="index-body__gender-man" class="index-body__gender-label" >男性</label>
                 <input type="radio" id="index-body__gender-women" name="gender" value="2" {{ old('gender') === '2' ? 'checked' : '' }}>
                 <label for="index-body__gender-woman" class="index-body__gender-label" >女性</label>
