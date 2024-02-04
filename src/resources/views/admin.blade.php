@@ -12,34 +12,29 @@
     
     <section class="admin-search-menu">
         <div class="admin-search-menu-main">
-            <form action="/admin" method="GET">
+        <form action="/admin" method="GET">
             @csrf
-                <input type="text" name="keyword" value="{{ request()->input('keyword') }} ">
-                <select name="gender">
-                    <option value="" {{ request()->input('gender') == "" ? 'selected' : '' }}>性別</option>
-                    <option value="1" {{ request()->input('gender') == "1" ? 'selected' : '' }}>男性</option>
-                    <option value="2" {{ request()->input('gender') == "2" ? 'selected' : '' }}>女性</option>
-                    <option value="3" {{ request()->input('gender') == "3" ? 'selected' : '' }}>その他</option>
-                </select>
-                <select name="category_id">
-                    <option value="" {{ request()->input('category_id') == "" ? 'selected' : '' }}>お問い合わせの種類</option>
-                    <option value="1" {{ request()->input('category_id') == "1" ? 'selected' : '' }}>商品のお届けについて</option>
-                    <option value="2" {{ request()->input('category_id') == "2" ? 'selected' : '' }}>商品の交換について</option>
-                    <option value="3" {{ request()->input('category_id') == "3" ? 'selected' : '' }}>商品トラブル</option>
-                    <option value="4" {{ request()->input('category_id') == "4" ? 'selected' : '' }}>ショップへのお問い合わせ</option>
-                    <option value="5" {{ request()->input('category_id') == "5" ? 'selected' : '' }}>その他</option>
-                </select>
-                <input type="date" name="date" value="{{ request()->input('date') }}">
-                <input type="submit" value="検索">
-                <button id="admin-search-menu-reset">リセット</button>
-            {{-- </form> --}}
+            <input type="text" name="keyword" value="{{ request()->input('keyword') }} ">
+            <select name="gender">
+                <option value="" {{ request()->input('gender') == "" ? 'selected' : '' }}>性別</option>
+                <option value="1" {{ request()->input('gender') == "1" ? 'selected' : '' }}>男性</option>
+                <option value="2" {{ request()->input('gender') == "2" ? 'selected' : '' }}>女性</option>
+                <option value="3" {{ request()->input('gender') == "3" ? 'selected' : '' }}>その他</option>
+            </select>
+            <select name="category_id">
+                <option value="" {{ request()->input('category_id') == "" ? 'selected' : '' }}>お問い合わせの種類</option>
+                @foreach($categories as $category)
+                    <option value="{{$category['id']}}" {{ request()->input('category_id') === $category['id'] ? 'selected' : '' }}>{{$category['content']}}</option>
+                @endforeach
+            </select>
+            <input type="date" name="date" value="{{ request()->input('date') }}">
+            <input type="submit" value="検索">
+            <button id="admin-search-menu-reset">リセット</button>  
         </div>
         <div class="admin-search-menu-sub">
-            {{-- TODO CSV化機能 --}}
-            {{-- <form action="/admin" method="GET"> --}}
-                <input type="submit" name="toCSV" value="エクスポート">
-            </form>
-            {{ $results->appends(request()->query())->links('vendor.pagination.simple-default') }}
+            <input type="submit" name="toCSV" value="エクスポート">
+        </form>
+        {{ $results->appends(request()->query())->links('vendor.pagination.simple-default') }}
         </div>
     </section>
     <section class="admin-result">

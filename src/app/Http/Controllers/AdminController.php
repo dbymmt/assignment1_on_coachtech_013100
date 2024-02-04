@@ -56,7 +56,13 @@ class AdminController extends Controller
             }
         }
 
-        return view('admin', ['results' => $results]);
+        
+        $categories = Category::all();
+        return view('admin', 
+            [
+                'results' => $results,
+                'categories' => $categories,
+            ]);
     }
 
     public function toCSV($contacts)

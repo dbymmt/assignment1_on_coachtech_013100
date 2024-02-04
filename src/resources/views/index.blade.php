@@ -7,14 +7,7 @@
 @section('content')
 <article class="index-main">
     <h2 class="index-title">Contact</h2>
-    {{-- @if ($errors->any())
-    <ul class="errors">
-        @foreach ($errors->all() as $error)
-            <li>{{$error}}</li>
-        @endforeach
-    </ul>
-    @endif --}}
-
+    
     <section class="index-body-form">
     <form action="/" method="POST">
     @csrf
@@ -125,11 +118,9 @@
             <div class="index-body__input_category">
                 <select id="index-body__category" name="category_id">
                     <option value="">選択してください</option>
-                    <option value="1" @if((int)old('category_id') === 1) selected @endif>商品のお届けについて</option>
-                    <option value="2" @if((int)old('category_id') === 2) selected @endif>商品の交換について</option>
-                    <option value="3" @if((int)old('category_id') === 3) selected @endif>商品トラブル</option>
-                    <option value="4" @if((int)old('category_id') === 4) selected @endif>ショップへのお問い合わせ</option>
-                    <option value="5" @if((int)old('category_id') === 5) selected @endif>その他</option>
+                    @foreach($categories as $category)
+                        <option value="{{$category['id']}}" @if((int)old('category_id') === $category['id'])selected @endif>{{$category['content']}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
