@@ -13,50 +13,18 @@ class AdminController extends Controller
     //
     public function AdminIndex(Request $request)
     {
-        // if($request->isMethod('post')){
-        if($request->query()){
+        // クエリ作成
+        $query = Contact::BuildQuery($request->input('keyword'), $request->input('gender'), $request->input('category_id'), $request->input('date'));
 
-            $query = Contact::query();
-
-            if ($request->filled('keyword')) {
-                $keyword = $request->input('keyword');
-                $query->where(function ($query) use ($keyword) {
-                    $query->where('first_name', 'like', "%$keyword%")
-                        ->orWhere('last_name', 'like', "%$keyword%")
-                        ->orWhere('email', 'like', "%$keyword%");
-                });
-            }
-
-            if ($request->filled('gender')) {
-                $query->where('gender', $request->input('gender'));
-            }
-
-            if ($request->filled('category_id')) {
-                $query->where('category_id', $request->input('category_id'));
-            }
-
-            if ($request->filled('date')) {
-                $query->whereDate('created_at', $request->input('date'));
-            }
-
-            if($request->input('toCSV')){
-                $results = $query->get();
-                return $this->toCSV($results);
-            }else{
-                $results = $query->paginate(7)->withQueryString();
-            }
-
-        }
-        else{
-            if($request->input('toCSV')){
-                $results = $query->get();
-                return $this->toCSV($results);
-            }else{
-                $results = Contact::Paginate(7);
-            }
+        // CSV作成有無、作成する場合toCSVへ
+        if($request->input('toCSV')){
+            $results = $query->get();
+            return $this->toCSV($results);
+        }else{
+            $results = $query->paginate(7)->withQueryString();
         }
 
-        
+        // 選択肢用カテゴリ一覧付加しviewへ渡す
         $categories = Category::all();
         return view('admin', 
             [
